@@ -1,0 +1,101 @@
+<!--blogpost-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="blog-post">
+                <h5 class="blog-title">{{blogPost.Title}}</h5>
+                <p class="blog-date">{{blogPost.CreateDate}}</p>
+                <p class="blog-author">Author: {{blogPost.Author}}</p>
+                <pre class="blog-text">{{blogPost.BlogText}}</pre>
+                {{#if blogPost.ImageFileName}}
+                    <img src="/blogimg/{{blogPost.ImageFileName}}" width="100%" height="100%">
+                {{/if}}
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+    <!--All Comments-->
+    {{#if commentObj.length}}
+        <h5 class="text-center">Comments</h5>
+        {{#each commentObj}}
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    {{#if ../loggedIn}}
+                        <a href="/editcomment/{{Id}}"><img src="/pencil.png" class="edit-icon"/></a>
+                    {{/if}}
+                    <h5>{{Name}}</h5>
+                    <p>{{CreateDate}}</p>
+                    <pre>{{Comment}}</pre>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+        {{/each}}
+    {{else}}
+        {{#if validationErrors.length}}
+        
+        {{else}}
+            <p class="text-center">There are no Comments</p>
+        {{/if}}   
+    {{/if}}
+
+    <h5 class="text-center"> Write Comment</h5>
+
+    <!--validation errors-->
+
+    {{#if validationErrors.length}}
+        <p class="text-center">Errors:</p>
+        <ul class="text-center">
+        {{#each validationErrors}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ul>
+    {{/if}}
+
+    <!--Write new Comment-->
+
+    <form class="bgform" enctype="multipart/form-data" method="POST" action="">
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                {{#if validationErrors.length}}
+                    <label for="name" class="labels" id="name-label">Name*</label>
+                    <input class="name input form-control" type="text" name="commentName" value="{{name}}"/>
+                {{else}}
+                    <label for="name" class="labels" id="name-label">Name*</label>
+                    <input class="name input form-control" type="text" name="commentName"/>
+                {{/if}}
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row text">
+
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+
+                {{#if validationErrors.length}}
+                    <label for="comment" class="labels" id="name-label">Comment*</label>
+                    <textarea class="comment textarea form-control" rows="5" cols="50"
+                    name="commentText">{{comment}}</textarea>
+                {{else}}
+                    <label for="comment" class="labels" id="name-label">Comment*</label>
+                    <textarea class="comment textarea form-control" rows="5" cols="50" name="commentText"></textarea>
+                {{/if}}
+                <input type="hidden" name="_csrf" value="{{token}}">
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <a class="back-btn btn btn-primary" href="/blog">Back</a>
+                <input class="btn btn-primary" type="submit" value="Post"/>
+            </div>
+        </div>
+    </form>
+</div>

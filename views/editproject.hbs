@@ -1,0 +1,68 @@
+
+
+<h4>Edit project</h4>
+
+{{#if validationErrors.length}}
+	<p class="text-center">Error:</p>
+	<ul class="text-center">
+		{{#each validationErrors}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+{{/if}}
+
+<div class="container">
+    <form enctype="multipart/form-data" method="POST" action="">
+        <div class="row">
+            <div class="col-lg-6">
+                {{#if validationErrors.length}}
+                    <label for="name" class="labels" id="name-label">Project Name*</label>
+                    <input class="name form-control" type="text" name="projectName" value="{{name}}"/>
+                    <label for="description" class="labels">Short Description*</label>
+                    <input class="description form-control" type="text" name="projectShortDescription" value="{{shortDescription}}"/>
+                    <label for="link" class="labels">Link*</label>
+                    <input class="link form-control" type="text" name="projectLink" value="{{link}}"/>
+                {{else}}
+                    <label for="name" class="labels" id="name-label">Project Name*</label>
+                    <input class="name form-control" type="text" name="projectName" value="{{projectObj.Name}}"/>
+                    <label for="description" class="labels">Short Description*</label>
+                    <input class="description form-control" type="text" name="projectShortDescription" value="{{projectObj.ShortDescription}}"/>
+                    <label for="link" class="labels">Link*</label>
+                    <input class="link form-control" type="text" name="projectLink" value="{{projectObj.WebLink}}"/>
+                {{/if}}
+
+                {{#if projectObj.ImageFileName}}
+                    <label for="keepProjectImage" class="labels" id="name-label">Keep uploaded Image</label>
+                    <input class="keepProjectImage" type="checkbox" name="keepImage" value="keep" checked><br>
+                {{/if}}
+
+                <input type="hidden" name="_csrf" value="{{token}}">
+                <input type="file" name="projectImage"/>
+            </div>
+
+            <div class="col-lg-6">
+                {{#if validationErrors.length}}
+                    <textarea class="content textarea form-control" rows="12" cols="50" name="projectInformationText">{{informationText}}</textarea>
+                {{else}}
+                    <textarea class="content textarea form-control" rows="12" cols="50" name="projectInformationText">{{projectObj.InformationText}}</textarea>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <a class="back-btn btn btn-primary" href="/project/{{projectObj.Id}}">Back</a>
+                {{#if validationErrors.length}}
+                    <input class="btn btn-primary" type="submit" formaction="/updateproject/{{id}}"  value="update"/>
+                    <input class="btn btn-primary" type="submit" formaction="/deleteproject/{{id}}" value="delete"/>
+                {{else}}
+                    <input class="btn btn-primary" type="submit" formaction="/updateproject/{{projectObj.Id}}"  value="update"/>
+                    <input class="btn btn-primary" type="submit" formaction="/deleteproject/{{projectObj.Id}}" value="delete"/>
+                {{/if}}
+            </div>
+        </div>
+    </form>
+</div>
+
+
+    

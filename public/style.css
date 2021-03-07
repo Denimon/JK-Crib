@@ -1,0 +1,142 @@
+
+/*Layout*/
+
+body{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+main{
+    margin-top: 100px;
+}
+header{
+    margin-top: 50px;
+    text-align: center;
+}
+footer{
+    margin-top: 100px;
+    height: 75px;
+    text-align: center;
+}
+.logout-button{
+    margin: 8px 0px 0px 7px;
+    padding: 0;
+    background-color:white;
+    border: none;
+}
+.about-Img{
+    margin-top: 50px;
+    height: 300px;
+    width: 300px; 
+}
+h4{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/*navbar*/
+.navbar{
+    margin-top: 50px;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+}
+.nav-link{
+    color: black;
+}
+.nav-item :hover{
+    color: #595c5e;
+}
+.form-group{
+    max-width: 400px;
+    margin: 10px auto;
+}
+
+/*Social media buttons*/
+.fa{
+    color: #262626;
+    background-color: white;
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  .fa:hover{
+      background-color: white;
+      color: black;
+      text-decoration: none;
+  }
+
+input{
+    margin-bottom: 30px;
+}
+
+.btn-primary{
+    background-color: #000000;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #595c5e;
+}
+
+.blog-post{
+    border-bottom: 1px solid #000000;
+    margin-bottom: 100px;
+    position: relative;
+}
+.blog-title{
+    text-align: center;
+}
+
+.blog-date{
+    font-size: 14px;
+    float: left;
+}
+.blog-author{
+    text-align: right;
+    font-size: 14px;
+}
+.blog-text {
+    margin-bottom: 30px;
+}
+
+.portfolio-link:hover{
+    text-decoration: none;
+}
+
+.portfolio{
+    background-color: #d7d9d7;
+    color: black;
+}
+
+.portfolio:hover{
+  background-color:#daeddf;
+  
+}
+.project{
+    position: relative;
+    margin-bottom: 50px;
+}
+.edit-icon{
+    width: 20px;
+    float: right;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    cursor: pointer;
+}
+
+.comment-link a{
+    color:#3e4a3e;
+    margin: 10px;
+}
+pre{
+    white-space:pre-wrap;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.back-btn{
+   margin-bottom: 30px;
+}
+

@@ -1,0 +1,45 @@
+
+{{#if notValidProject}}
+    <div class="text-center">
+        <p>Project not found</p>
+        <a class="btn btn-primary" href="/">Back</a>
+    </div>
+{{/if}}
+
+
+{{#if notValidBlogPost}}
+    <div class="text-center">
+        <p>BlogPost not found</p>
+        <a class="btn btn-primary" href="/blog">Back</a>
+    </div>
+{{/if}}
+
+{{#if notValidComment}}
+    <div class="text-center">
+        <p>Comment not found</p>
+        <a class="btn btn-primary" href="/blog">Back</a>
+    </div>
+{{/if}}
+
+{{#if notLoggedIn}}
+    <div class="text-center">
+        <p>Not logged in</p>
+        <a class="btn btn-primary" href="/login">Back</a>
+    </div>
+{{/if}}
+
+{{#if internalSystemError}}
+    <div class="text-center">
+        <p>Server error, we are working on the problem.</p>
+        <a class="btn btn-primary" href="/">Back</a>
+    </div>
+{{/if}}
+
+{{#if notValidURI}}
+    <div class="text-center">
+        <p>Page does not exist</p>
+        <a class="btn btn-primary" href="/">Back</a>
+    </div>
+{{/if}}
+
+

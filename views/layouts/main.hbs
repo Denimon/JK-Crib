@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <meta charset="UTF-8">
+        <title>Johan Kantola</title>
+    </head>
+
+    <body> 
+        <header>
+            <h1>Johan Kantola</h1>
+        </header>
+        <nav class="navbar navbar-expand-sm justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+
+                {{#if isLoggedIn}}
+
+                    <form action="/logout" method="POST">
+                        <input class="logout-button" type="submit" value="Log out"/>
+                        <input type="hidden" name="_csrf" value="{{token}}"> 
+                    </form>
+
+                {{else}}
+                    <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+        <main>
+            {{{body}}}
+        </main>
+        <footer><p>By Johan Kantola 2019</p></footer>
+    </body>
+</html>

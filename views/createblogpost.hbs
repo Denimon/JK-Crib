@@ -1,0 +1,54 @@
+
+
+<h4>Create new Blogpost</h4>
+
+{{#if validationErrors.length}}
+	<p class="text-center">Errors:</p>
+	<ul class="text-center">
+		{{#each validationErrors}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+{{/if}}
+
+<div class="container">
+    <form enctype="multipart/form-data" method="POST" action="">
+        <div class="row">
+            <div class="col-lg-6">
+
+                {{#if validationErrors.length}}
+                    <label for="blogTitle" class="labels" id="name-label">Title*</label>
+                    <input class="blogTitle form-control" type="text" name="blogTitle" value="{{title}}"/>
+                    <label for="blogAuthor" class="labels" id="name-label">By*</label>
+                    <input class="blogAuthor form-control" type="text" name="blogAuthor" value="{{author}}"/>
+                {{else}}
+                    <label for="blogTitle" class="labels" id="name-label">Title*</label>
+                    <input class="blogTitle form-control" type="text" name="blogTitle"/>
+                    <label for="blogAuthor" class="labels" id="name-label">By*</label>
+                    <input class="blogAuthor form-control" type="text" name="blogAuthor"/>
+                {{/if}}
+
+                <input type="hidden" name="_csrf" value="{{token}}">
+                <input type="file" name="blogImage"/>
+
+            </div>
+            <div class="col-lg-6">
+
+                {{#if validationErrors.length}}
+                    <label for="blogText" class="labels" id="name-label">Blog Text*</label>
+                    <textarea class="blogText textarea form-control" rows="5" cols="50" name="blogText">{{content}}</textarea>
+                {{else}}
+                    <label for="blogText" class="labels" id="name-label">Blog Text*</label>
+                    <textarea class="blogText textarea form-control" rows="5" cols="50" name="blogText"></textarea>
+                {{/if}}
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <a class="back-btn btn btn-primary" href="/blog">Back</a>
+                <input class="btn btn-primary" type="submit" value="Post"/>
+            </div>
+        </div>
+    </form>
+</div>

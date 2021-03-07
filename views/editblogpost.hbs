@@ -1,0 +1,60 @@
+
+
+<h4>Edit Blogpost</h4>
+
+{{#if validationErrors.length}}
+	<p class="text-center">Errors:</p>
+	<ul class="text-center">
+		{{#each validationErrors}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+{{/if}}
+
+<div class="container">
+    <form enctype="multipart/form-data" method="POST" action="">
+        <div class="row">
+            <div class="col-lg-6">
+                {{#if validationErrors.length}}
+                    <label for="blogTitle" class="labels" id="name-label">Title*</label>
+                    <input class="blogTitle form-control" type="text" name="blogTitle" value="{{title}}"/>
+                    <label for="blogAuthor" class="labels" id="name-label">By*</label>
+                    <input class="blogAuthor form-control" type="text" name="blogAuthor" value="{{author}}"/>
+                {{else}}
+                    <label for="blogTitle" class="labels" id="name-label">Title*</label>
+                    <input class="blogTitle form-control" type="text" name="blogTitle" value="{{blogPost.Title}}"/>
+                    <label for="blogAuthor" class="labels" id="name-label">By*</label>
+                    <input class="blogAuthor form-control" type="text" name="blogAuthor" value="{{blogPost.Author}}"/>
+                {{/if}}
+
+                {{#if blogPost.ImageFileName}}
+                    <label for="keepImage" class="labels" id="name-label">Keep uploaded Image</label>
+                    <input class="keepImage" type="checkbox" name="keepImage" value="keep" checked><br>
+                {{/if}}
+                <input type="hidden" name="_csrf" value="{{token}}">
+                <input class="input" type="file" name="blogImage"/>
+            </div>
+            <div class="col-lg-6">
+                {{#if validationErrors.length}}
+                    <label for="blogText" class="labels" id="name-label">Content*</label>
+                    <textarea class="content textarea form-control" rows="5" cols="50" name="blogText">{{text}}</textarea>
+                {{else}}
+                    <label for="blogText" class="labels" id="name-label">Content*</label>
+                    <textarea class="content textarea form-control" rows="5" cols="50" name="blogText">{{blogPost.BlogText}}</textarea>
+                {{/if}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a class="back-btn btn btn-primary" href="/blog">Back</a>
+                {{#if validationErrors.length}}
+                    <input class="btn btn-primary" type="submit" formaction="/updateblogpost/{{id}}" value="update"/>
+                    <input class="btn btn-primary" type="submit" formaction="/deleteblogpost/{{id}}" value="delete"/>
+                {{else}}
+                    <input class="btn btn-primary" type="submit" formaction="/updateblogpost/{{blogPost.Id}}" value="update"/>
+                    <input class="btn btn-primary" type="submit" formaction="/deleteblogpost/{{blogPost.Id}}" value="delete"/>
+                {{/if}}
+            </div>
+        </div>
+    </form>
+</div>

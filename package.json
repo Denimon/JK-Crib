@@ -1,0 +1,32 @@
+{
+  "name": "JK-Crib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Denimon/Personal-webpage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Denimon/Personal-webpage/issues"
+  },
+  "homepage": "https://github.com/Denimon/Personal-webpage#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-sqlite3": "^0.9.11",
+    "cookie-parser": "^1.4.4",
+    "csurf": "^1.10.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
+    "sqlite3": "^4.1.1"
+  }
+}

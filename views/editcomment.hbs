@@ -1,0 +1,62 @@
+
+
+<h4 class="text-center"> Edit Comment</h4>
+
+
+{{#if validationErrors.length}}
+	<p class="text-center">Error:</p>
+	<ul class="text-center">
+		{{#each validationErrors}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+{{/if}}
+
+<div class="container">
+    <form class="bgform" enctype="multipart/form-data" method="POST" action="">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                {{#if validationErrors.length}}
+                    <label for="name" class="labels" id="name-label">Name</label>
+                    <input class="name form-control" type="text" name="commentName" value="{{name}}"/>
+                {{else}}
+                    <label for="name" class="labels" id="name-label">Name</label>
+                    <input class="name form-control" type="text" name="commentName" value="{{comment.Name}}"/>
+                {{/if}}
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row text">
+
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                {{#if validationErrors.length}}
+                    <label for="comment" class="labels" id="name-label">Comment</label>
+                    <textarea class="comment textarea form-control" rows="5" cols="50" name="commentText">{{comment}}</textarea>
+                {{else}}
+                    <label for="comment" class="labels" id="name-label">Comment</label>
+                    <textarea class="comment textarea form-control" rows="5" cols="50" name="commentText">{{comment.Comment}}</textarea>
+                {{/if}}
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <input type="hidden" name="_csrf" value="{{token}}">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 text-center">
+                <a class="back-btn btn btn-primary" href="/blog">Back</a>
+                {{#if validationErrors.length}}
+                    <input class="btn btn-primary" type="submit" formaction="/updatecomment/{{id}}" value="update"/>
+                    <input class="btn btn-primary" type="submit" formaction="/deletecomment/{{id}}" value="delete"/>
+                {{else}}
+                    <input class="btn btn-primary" type="submit" formaction="/updatecomment/{{comment.Id}}" value="update"/>
+                    <input class="btn btn-primary" type="submit" formaction="/deletecomment/{{comment.Id}}" value="delete"/>
+                {{/if}}
+                
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </form>
+</div>

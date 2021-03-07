@@ -1,0 +1,30 @@
+<h4>Portfolio</h4>
+
+<div class="container">
+    {{#if projectObj.length}}
+        {{#each projectObj}}
+            <br>
+            <a class="portfolio-link" href="/project/{{Id}}">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 portfolio">
+                        <h5>{{Name}}</h5>
+                        <p>{{ShortDescription}}</p>
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
+            </a>
+            <br>
+        {{/each}}
+    {{else}}
+        <p class="text-center">There are no projects</p>
+    {{/if}}
+
+    {{#if loggedIn}}
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <a class="btn btn-primary" href="/createproject/">Create Project</a>
+            </div>
+        </div>
+    {{/if}}
+</div>
