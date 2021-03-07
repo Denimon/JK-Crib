@@ -1,4 +1,5 @@
 # JK-Crib
+#Node.js #Express #Handlebars
 
 This project is a part of the course Web Development Fundamentals at Jönköping University.
 The task is to individually create a personal website, with some specific pages and functions. The
@@ -25,6 +26,6 @@ other visitors, there is a login functionality with a single administrator accou
 
 Architecture
 
-<img width="807" alt="Screenshot 2021-03-07 at 20 16 04" src="https://user-images.githubusercontent.com/41270402/110251690-f4d46100-7f81-11eb-8899-bc26a14af32f.png">
-
 <img width="741" alt="Screenshot 2021-03-07 at 20 18 10" src="https://user-images.githubusercontent.com/41270402/110251756-47ae1880-7f82-11eb-98ed-70487e2ee3ec.png">
+
+
