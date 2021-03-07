@@ -1,5 +1,5 @@
 # JK-Crib
-#Node.js #Express #Handlebars
+#Node.js #Express #Handlebars #SQLite
 
 This project is a part of the course Web Development Fundamentals at Jönköping University.
 The task is to individually create a personal website, with some specific pages and functions. The
