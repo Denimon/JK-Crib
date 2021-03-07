@@ -23,11 +23,6 @@ JK-Crib is Johan Kantola’s personal website where visitors can find informatio
 his blog, write comments to his blogposts and check out his portfolio. To distinguish Johan from
 other visitors, there is a login functionality with a single administrator account on the website.
 
-As administrator Johan can:
- -Create, edit and delete blogposts.
- -Create, edit and delete comments.
- -Create, edit and delete projects in the portfolio.
- Visitors can:
- -Read blogposts.
- -Write comments to the different blogposts.
- -View the different projects in the portfolio.
+Architecture
+
+<img width="807" alt="Screenshot 2021-03-07 at 20 16 04" src="https://user-images.githubusercontent.com/41270402/110251690-f4d46100-7f81-11eb-8899-bc26a14af32f.png">
